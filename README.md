@@ -38,6 +38,8 @@ También se puede pulsar **Código manual** y escribir un código de la tabla de
 
 **Atajos de teclado:** **F2** código manual · **F3** otra cantidad · **F4** catálogo de panadería · **F8** cobrar · **Enter** confirma · **Esc** cancela. Se pueden ver sobre cada botón desde **Opciones → Mostrar atajos de teclado**.
 
+**Guía para revisar la prueba (solo en la versión publicada):** al compilar con `VITE_GUIA_REVISION=1` (por ejemplo `VITE_GUIA_REVISION=1 npm run build`), la app abre al cargar una ventana con el guion de un minuto: qué tecla probar y qué debe pasar. Se cierra con **Esc** o **Empezar a probar** y se reabre con el botón **Guía de prueba** de la cabecera. No forma parte del diseño del TPV: con `npm run dev` o `npm run build` normales no aparece, y tampoco se abre sola sobre un estado de comprobación (`?estado=…`). Mientras está abierta, las teclas de venta no actúan.
+
 **Estados de comprobación:** añadir `?estado=…` a la dirección abre la pantalla ya en una situación concreta, por ejemplo `/?estado=productos`. Los disponibles son `vacia`, `productos`, `seleccion`, `maximo`, `nombre-largo`, `importe-amplio`, `lista-larga`, `escaneo-correcto`, `lectura-error`, `codigo-error`, `codigo-manual`, `codigo-manual-error`, `editar`, `otra-cantidad`, `cantidad-error`, `cantidad-pendiente`, `cierre-pendiente`, `borrar`, `descarte`, `pago`, `completada`, `catalogo` y `atajos`. Sin parámetro, la aplicación empieza con una venta nueva vacía.
 
 ### Catálogo de ejemplo

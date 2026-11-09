@@ -1,4 +1,6 @@
+import { CircleHelp } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import { MenuOpciones } from './MenuOpciones';
 import { Marca, SesionCajero } from './Sesion';
 
@@ -29,13 +31,15 @@ interface Props {
   atajos: boolean;
   onAtajos: (valor: boolean) => void;
   menuAbiertoInicial?: boolean;
+  /** Solo en la versión publicada para revisar la prueba: reabre la guía. */
+  onGuia?: () => void;
 }
 
 /**
  * AppHeader — Cabecera fija: marca, cajero, reloj y menú Opciones. El estado de las pistas de teclado
  * llega de `App` porque lo leen componentes de toda la pantalla.
  */
-export function AppHeader({ atajos, onAtajos, menuAbiertoInicial }: Props) {
+export function AppHeader({ atajos, onAtajos, menuAbiertoInicial, onGuia }: Props) {
   return (
     <header className="relative z-20 flex items-center justify-between border-b border-line bg-surface px-5 xl:px-7">
       <div className="flex items-center gap-4">
@@ -44,6 +48,18 @@ export function AppHeader({ atajos, onAtajos, menuAbiertoInicial }: Props) {
       </div>
       <div className="flex items-center gap-4 font-medium text-ink-muted">
         <Reloj />
+        {onGuia && (
+          <Button
+            type="button"
+            variant="ghost"
+            size="compact"
+            className="gap-2 rounded-control px-3 font-semibold text-ink-muted"
+            onClick={onGuia}
+          >
+            <CircleHelp className="size-icon-sm" aria-hidden />
+            Guía de prueba
+          </Button>
+        )}
         <MenuOpciones atajos={atajos} onAtajos={onAtajos} abiertoInicial={menuAbiertoInicial} />
       </div>
     </header>

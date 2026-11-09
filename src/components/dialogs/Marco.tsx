@@ -51,6 +51,8 @@ interface MarcoProps {
   descripcion?: string;
   /** Elemento que recibe el foco al abrir (en `alerta`, siempre la opción segura). */
   focoInicial: RefObject<HTMLElement | null> | (() => HTMLElement | null);
+  /** Elemento que recibe el foco al cerrar. Por defecto, el que lo tenía antes de abrir. */
+  focoFinal?: () => HTMLElement | null;
   /** Contenido bajo la descripción. */
   children?: ReactNode;
   /** Botones del pie, de menos a más importante. Sin ellos no hay pie. */
@@ -68,6 +70,7 @@ export function Marco({
   accionCabecera,
   descripcion,
   focoInicial,
+  focoFinal,
   children,
   acciones,
 }: MarcoProps) {
@@ -87,7 +90,7 @@ export function Marco({
         if (!a) onCerrar?.();
       }}
     >
-      <Contenido initialFocus={focoInicial}>
+      <Contenido initialFocus={focoInicial} finalFocus={focoFinal ?? true}>
         <div className={cn('flex items-center gap-3 border-b px-6 py-4', estilo)}>
           {Icono ? <Icono className="size-icon-lg" aria-hidden /> : null}
           <Titulo
