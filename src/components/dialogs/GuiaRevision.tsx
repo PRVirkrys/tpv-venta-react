@@ -3,8 +3,15 @@ import { ID_FOCO_ESCANER } from '@/hooks/useFocoEstable';
 import { BotonDialogo, Marco } from './Marco';
 
 const PASOS: readonly { tecla: string; texto: string }[] = [
-  { tecla: 'E', texto: 'Añade un producto, como si se escaneara su código.' },
-  { tecla: '+ Bolsa ×2', texto: 'Repetir un producto suma 1 a su cantidad en vez de duplicarlo.' },
+  {
+    tecla: 'E',
+    texto:
+      'Escanea el siguiente producto del catálogo. Al terminar el catálogo vuelve a empezar y suma 1 a los que ya están, como si se escaneara otra vez el mismo.',
+  },
+  {
+    tecla: '+ Bolsa ×2',
+    texto: 'Forma rápida de verlo: repetir un producto suma 1 a su cantidad, no lo duplica.',
+  },
   { tecla: 'N', texto: 'Código que no existe: aparece el aviso y la entrada manual.' },
   { tecla: 'R', texto: 'Lectura fallida: se abre la entrada manual para escribir el código.' },
   { tecla: 'F3', texto: 'Cambia la cantidad del producto seleccionado.' },
