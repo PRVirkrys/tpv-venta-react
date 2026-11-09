@@ -57,7 +57,7 @@ export function GuiaRevision({ abierta, onCerrar }: { abierta: boolean; onCerrar
         ))}
       </ol>
       <p className="text-body text-ink-muted">
-        El total se calcula solo en cada paso. Para ver las teclas sobre cada botón: Opciones →
+        El total se calcula solo en cada paso. Para ver las teclas sobre cada botón: Opciones,
         Mostrar atajos de teclado.
       </p>
     </Marco>

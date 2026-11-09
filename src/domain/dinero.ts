@@ -6,7 +6,7 @@ const formatoEuro = new Intl.NumberFormat('es-ES', {
   currency: 'EUR',
 });
 
-/** 1290 → "12,90 €" */
+/** Por ejemplo, 1290 se muestra como "12,90 €". */
 export function formatearEuros(centimos: Centimos): string {
   return formatoEuro.format(centimos / 100);
 }

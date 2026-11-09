@@ -14,7 +14,7 @@ async function violaciones() {
     rules: { 'color-contrast': { enabled: false } },
   });
   return resultado.violations.map(
-    (v) => `${v.id}: ${v.help} → ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`,
+    (v) => `${v.id}: ${v.help} en ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`,
   );
 }
 

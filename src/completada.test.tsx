@@ -5,7 +5,7 @@ import { abrir, filas, total } from './test-utils';
 
 describe('venta completada y cuenta atrás', () => {
   const completada = () => screen.getByRole('dialog', { name: 'Venta completada' });
-  /** Se abre como en el uso real (Cobrar → Efectivo): un diálogo que ya nace abierto no recibe el foco inicial. */
+  /** Se abre como en el uso real (Cobrar y después Efectivo): un diálogo que ya nace abierto no recibe el foco inicial. */
   async function cobrar(u: ReturnType<typeof userEvent.setup> = userEvent.setup()) {
     abrir('productos');
     await u.click(screen.getByRole('button', { name: /Cobrar/ }));

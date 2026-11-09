@@ -363,8 +363,8 @@ function EditorCantidad({
 }
 
 /**
- * SidePanel — Panel derecho táctil. Qué se ve según el modo: editando cantidad → solo el editor; código
- * manual → escáner + teclado, sin inspector ni accesos; resto → escáner + inspector + accesos.
+ * SidePanel — Panel derecho táctil. Qué se ve según el modo: al editar la cantidad, solo el editor; con el
+ * código manual, escáner y teclado, sin inspector ni accesos; en el resto, escáner, inspector y accesos.
  */
 export function SidePanel({ tpv, dispatch }: { tpv: Tpv; dispatch: Dispatch<AccionTpv> }) {
   const { venta, modo } = tpv;

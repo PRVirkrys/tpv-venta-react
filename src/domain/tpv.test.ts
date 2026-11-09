@@ -77,7 +77,7 @@ describe('escaneo', () => {
   });
 });
 
-describe('código no leído o inexistente → entrada manual automática', () => {
+describe('código no leído o inexistente: entrada manual automática', () => {
   it('un código que no existe abre la entrada manual con el aviso, sin tocar la venta', () => {
     const base = conProductos();
     const t = aplicar(base, escanear('000000000000'));
@@ -664,7 +664,7 @@ describe('catálogo rápido · guardar', () => {
     expect(t.venta.registros).toBe(base.venta.registros);
   });
 
-  it('Croissant → Baguette → Croissant: el último tocado (Croissant) queda primero y seleccionado', () => {
+  it('Croissant, Baguette y otra vez Croissant: el último tocado (Croissant) queda primero y seleccionado', () => {
     const t = aplicar(
       abrirCatalogo(TPV_INICIAL),
       sumarCat(croissant),

@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils';
 /**
  * Estados de los botones, sin sombras. La pantalla es táctil, pero también se puede usar con ratón, así que
  * hay dos respuestas: `hover:` (solo en dispositivos con puntero, un paso suave) y `active:` (al pulsar, más marcado):
- * - principal  → `--primary-hover` / `--primary-pressed`
- * - neutro (outline, ghost, secondary) → `--surface-hover` / `--surface-pressed`
- * - peligro suave (Descartar venta, Quitar de la venta) → fondo `--error-hover` / `--error-press` y texto `--error-pressed` al pulsar
+ * - principal: `--primary-hover` / `--primary-pressed`
+ * - neutro (outline, ghost, secondary): `--surface-hover` / `--surface-pressed`
+ * - peligro suave (Descartar venta, Quitar de la venta): fondo `--error-hover` / `--error-press` y texto `--error-pressed` al pulsar
  * Lo desactivado no responde (`pointer-events-none`).
  */
 const buttonVariants = cva(

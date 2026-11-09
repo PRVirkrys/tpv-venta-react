@@ -1,6 +1,6 @@
 # TPV · venta de caja
 
-Pantalla de venta para una caja de supermercado atendida: **nueva venta → gestionar productos → cierre simulado**. Hecha con React 18 y TypeScript. El catálogo es ficticio y todo se vende por unidades.
+Pantalla de venta para una caja de supermercado atendida: **nueva venta, gestión de productos y cierre simulado**. Hecha con React 18 y TypeScript. El catálogo es ficticio y todo se vende por unidades.
 
 ## Cómo ejecutarlo
 
@@ -36,7 +36,7 @@ Se abre en `http://localhost:5173`. Está pensada para una pantalla táctil de *
 
 También se puede pulsar **Código manual** y escribir un código de la tabla de abajo, o usar los accesos rápidos (Panadería, Fruta y verdura, + Bolsa).
 
-**Atajos de teclado:** **F2** código manual · **F3** otra cantidad · **F4** catálogo de panadería · **F8** cobrar · **Enter** confirma · **Esc** cancela. Se pueden ver sobre cada botón desde **Opciones → Mostrar atajos de teclado**.
+**Atajos de teclado:** **F2** código manual · **F3** otra cantidad · **F4** catálogo de panadería · **F8** cobrar · **Enter** confirma · **Esc** cancela. Se pueden ver sobre cada botón desde **Opciones, Mostrar atajos de teclado**.
 
 **Guía para revisar la prueba (solo en la versión publicada):** al compilar con `VITE_GUIA_REVISION=1` (por ejemplo `VITE_GUIA_REVISION=1 npm run build`), la app abre al cargar una ventana con el guion de un minuto: qué tecla probar y qué debe pasar. Se cierra con **Esc** o **Empezar a probar** y se reabre con el botón **Guía de prueba** de la cabecera. No forma parte del diseño del TPV: con `npm run dev` o `npm run build` normales no aparece, y tampoco se abre sola sobre un estado de comprobación (`?estado=…`). Mientras está abierta, las teclas de venta no actúan.
 

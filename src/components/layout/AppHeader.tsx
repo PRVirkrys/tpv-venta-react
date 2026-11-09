@@ -21,7 +21,7 @@ function Reloj() {
     const id = setInterval(() => setAhora(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
-  // "07/11/2026, 17:12:47" -> "07/11/2026 · 17:12:47"
+  // "07/11/2026, 17:12:47" pasa a ser "07/11/2026 · 17:12:47"
   return (
     <span className="text-body tabular-nums">{formato.format(ahora).replace(', ', ' · ')}</span>
   );
