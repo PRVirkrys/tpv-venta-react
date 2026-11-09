@@ -1,0 +1,23 @@
+import * as React from 'react';
+import { Input as InputPrimitive } from '@base-ui/react/input';
+import { cn } from '@/lib/utils';
+
+// React 18: un componente de función no recibe `ref` como propiedad, hace falta forwardRef.
+const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<'input'>>(
+  function Input({ className, type, ...props }, ref) {
+    return (
+      <InputPrimitive
+        ref={ref}
+        type={type}
+        data-slot="input"
+        className={cn(
+          'h-touch w-full min-w-0 rounded-lg border border-input bg-transparent px-3 py-1 text-amount transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-body',
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+
+export { Input };
