@@ -38,7 +38,10 @@ También se puede pulsar **Código manual** y escribir un código de la tabla de
 
 **Atajos de teclado:** **F2** código manual · **F3** otra cantidad · **F4** catálogo de panadería · **F8** cobrar · **Enter** confirma · **Esc** cancela. Se pueden ver sobre cada botón desde **Opciones, Mostrar atajos de teclado**.
 
-**Guía para revisar la prueba (solo en la versión publicada):** al compilar con `VITE_GUIA_REVISION=1` (por ejemplo `VITE_GUIA_REVISION=1 npm run build`), la app abre al cargar una ventana con el guion de un minuto: qué tecla probar y qué debe pasar. Se cierra con **Esc** o **Empezar a probar** y se reabre con el botón **Guía de prueba** de la cabecera. No forma parte del diseño del TPV: con `npm run dev` o `npm run build` normales no aparece, y tampoco se abre sola sobre un estado de comprobación (`?estado=…`). Mientras está abierta, las teclas de venta no actúan.
+**Ayuda para revisar la prueba (solo en la versión publicada):** al compilar con `VITE_GUIA_REVISION=1` (por ejemplo `VITE_GUIA_REVISION=1 npm run build`), la app añade una capa de ayuda que no forma parte del diseño del TPV. Con `npm run dev` o `npm run build` normales no aparece nada de esto.
+- **Intro de tres pasos** al cargar (añadir productos, cambiar la cantidad y qué hacer si falla la lectura), con mini ilustraciones hechas con piezas de la propia pantalla. Se salta con **Saltar** o **Esc**, atrapa el foco mientras está abierta y lo devuelve al estado del escáner al cerrarse. Mientras está abierta, las teclas de venta no actúan. Se vuelve a ver en **Opciones, Ver guía otra vez**, que reinicia también las pistas. No se abre sola sobre un estado de comprobación (`?estado=…`).
+- **Pistas en contexto:** una nota corta junto al control real, que queda resaltado, en el momento en que sirve y una sola vez: escáner, cantidad, teclado numérico, lectura fallida y cobro. No reciben el foco ni bloquean el teclado, y se cierran con **Entendido** o al usar el control. Con `prefers-reduced-motion` no hay animación.
+- **Pantalla completa** en la cabecera, o una ventana nueva de 1366 × 768 si el navegador no la permite. Si la ventana mide menos de 1024 × 768, la pantalla se reduce entera para que quepa y el botón indica «Vista reducida».
 
 **Estados de comprobación:** añadir `?estado=…` a la dirección abre la pantalla ya en una situación concreta, por ejemplo `/?estado=productos`. Los disponibles son `vacia`, `productos`, `seleccion`, `maximo`, `nombre-largo`, `importe-amplio`, `lista-larga`, `escaneo-correcto`, `lectura-error`, `codigo-error`, `codigo-manual`, `codigo-manual-error`, `editar`, `otra-cantidad`, `cantidad-error`, `cantidad-pendiente`, `cierre-pendiente`, `borrar`, `descarte`, `pago`, `completada`, `catalogo` y `atajos`. Sin parámetro, la aplicación empieza con una venta nueva vacía.
 
@@ -98,7 +101,8 @@ Los códigos son texto: se conservan los ceros iniciales y solo se aceptan núme
 ```
 src/
   domain/        Reglas puras, sin React: dinero, cantidades, catálogo, venta y estado de la pantalla
-  components/    layout/ (pantalla), dialogs/ (diálogos, sobre el marco común Marco.tsx), ui/ (shadcn/ui)
+  components/    layout/ (pantalla), dialogs/ (diálogos, sobre el marco común Marco.tsx), ui/ (shadcn/ui),
+                 guia/ (ayuda de la versión publicada: intro, pistas y pantalla completa)
   hooks/         Lector de códigos, simulador, atajos y foco
   lib/           Utilidades, pistas de teclado y pantalla completa en tableta
   dev/           Estados de comprobación (?estado=…)

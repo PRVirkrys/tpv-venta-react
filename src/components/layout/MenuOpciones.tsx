@@ -1,4 +1,4 @@
-import { SlidersHorizontal } from 'lucide-react';
+import { CircleHelp, SlidersHorizontal } from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -8,10 +8,12 @@ interface Props {
   onAtajos: (valor: boolean) => void;
   /** Solo para los estados de comprobación (`?estado=atajos`). */
   abiertoInicial?: boolean;
+  /** Solo en la versión publicada para revisar la prueba. */
+  onVerGuia?: () => void;
 }
 
 /** Menú de opciones: interruptor de las pistas de teclado y acceso a administración (no disponible en esta prueba). */
-export function MenuOpciones({ atajos, onAtajos, abiertoInicial = false }: Props) {
+export function MenuOpciones({ atajos, onAtajos, abiertoInicial = false, onVerGuia }: Props) {
   const [abierto, setAbierto] = useState(abiertoInicial);
   const idMenu = useId();
   const contenedor = useRef<HTMLDivElement>(null);
@@ -102,6 +104,19 @@ export function MenuOpciones({ atajos, onAtajos, abiertoInicial = false }: Props
               Sin lector físico: E simula un escaneo, R un código no leído y N un producto no
               encontrado.
             </p>
+          )}
+          {onVerGuia && (
+            <button
+              type="button"
+              onClick={() => {
+                setAbierto(false);
+                onVerGuia();
+              }}
+              className="mt-1.5 flex min-h-touch w-full items-center gap-3 border-t border-line text-left text-body font-semibold outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            >
+              <CircleHelp className="size-icon-sm" aria-hidden />
+              Ver guía otra vez
+            </button>
           )}
           <button
             type="button"
